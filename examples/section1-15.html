@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+<h1>4-4 [JavaScript]get/set方法</h1>
+<hr>
+
+<script type="text/javascript">
+  var man = {
+    name:'rison',
+    weibo:'@rison',
+    get age(){
+      return new Date().getFullYear()-1988;
+    },
+    set age(val){
+      console.log('Age can\'t be set to' +val)
+    }
+  }
+  
+  console.log(man.age)//27
+  man.age=100//Age can't be set to100
+  console.log(man.age)//still 27
+  
+  
+  var woman = {
+    weibo:'@rison',
+    $age:null,
+    get age(){
+      if (this.$age == undefined) {
+          return new Date().getFullYear()-1988
+      }else{
+        return this.$age
+      }
+    },
+    set age(val){
+      val= +val;
+      if (!isNaN(val)&&val>0&&val<150) {
+          this.$age = +val;
+      }else{
+        throw new Error('Incorrect val =' + val)
+      }
+    }
+  }
+  
+  console.log('woman+',woman.age)
+  woman.age=100;
+  console.log('woman+',woman.age)
+  woman.age='abc';
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+<h1>6-3 [JavaScript]this</h1>
+<hr>
+<p>this</p>
+<script type="text/javascript">
+  console.log(this === window)
+
+  var o = {
+    prop: 37,
+    f: function () {
+      return this.prop
+    }
+  };
+  console.log(o.f())
+
+  function test(c,d) {
+    return this.a + this.b + c + d;
+  }
+
+  var o = {a:1,b:3};
+
+  console.log(test.call(o,5,7))
+  console.log(test.apply(o,[10,20]))
+</script>
+</body>
+</html>

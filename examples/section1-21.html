@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+<h1>5-3 [JavaScript]数组方法（下）</h1>
+<hr>
+
+<script type="text/javascript">
+  //forEach 只支持iE9以上的浏览器
+  //map indexOf 只支持iE9以上的浏览器
+  var arr = [1, 2, 3, 4, 5]
+  arr.forEach(function (x, index, a) {
+    console.log(x + '|' + index + '|' + (a === arr))
+  })
+
+  //filter
+  var arr2 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  arr2.filter(function (x, index) {
+    if (index % 3 === 0 || x >= 8) {
+      console.log('index-x', index + '-' + x)
+    }
+  })
+
+  //数组索引查找
+  var arr3 = [1, 2, 3, 2, 1]
+
+  console.log(arr3.indexOf(2)) //找到第二索引  左到右
+  console.log(arr3.indexOf(1,-3))//4
+  console.log(arr3.indexOf(1,-6))//0
+  console.log(arr3.lastIndexOf(2))  //右到左
+
+
+  //判断是否为数组
+  Array.isArray([])
+</script>
+</body>
+</html>

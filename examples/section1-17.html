@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+<h1>4-6 [JavaScript]对象标签、对象序列化</h1>
+<hr>
+<script type="text/javascript">
+
+  var toString = Object.prototype.toString;
+
+  function getType(o) {
+    return toString.call(o).slice(8, -1)
+  }
+
+  console.log(toString.call(null))
+  console.log(getType(null))
+  console.log(getType(undefined))
+  console.log(getType(1))
+  console.log(getType(new Number(1)))
+  console.log(typeof  new Number(1))
+  console.log(getType(true))
+  console.log(new Boolean(true))
+
+  console.log('------------------------')
+  
+  var obj = {x:1,y:true,z:[1,2,3],nullVal:null}
+  console.log(JSON.stringify(obj))
+  
+  obj = {val:undefined,a:NaN,b:Infinity,c:new Date()}
+  console.log(JSON.stringify(obj))
+  
+  obj = JSON.parse('{"x":1}')
+  console.log(obj)
+  
+</script>
+</body>
+</html>
